@@ -1,31 +1,81 @@
 
-var yo=0;
-const searchFocus = document.getElementById('search-focus');
- var  bad=0;
-$( "#badmintion" ).on({
-    
-    
-        
-        "click": function() {    
-        
-                  bad=1;
-                console.log(bad)
 
-    
-       yo=bad;
-    
-    }
-        
 
-    
-    
-    
+var checking = {  }
+
+$("#badmintion").click(function (e) { 
+   e.preventDefault();
+
+   checking={ }
+   checking={
+
+      name:"badmintion"
+   }
+   yo();
+   
+});
+
+$("#cricket").click(function (e) { 
+   e.preventDefault();
+
+   checking={ }
+   checking={
+
+      name:"Cricket"
+   }
+   yo();
+});
+
+$("#basketball").click(function (e) { 
+   e.preventDefault();
+
+   checking={ }
+   checking={
+
+      name:"basketball"
+   }
+   yo();
+});
+
+$("#volleyball").click(function (e) { 
+   e.preventDefault();
+
+   checking={ }
+   checking={
+
+      name:"volleyball"
+   }
+   yo();
+});
+$("#hockey").click(function (e) { 
+   e.preventDefault();
+
+   checking={ }
+   checking={
+
+      name:"hockey"
+   }
+   yo();
 });
 
 
-console.log(bad);
-if(yo==1)
-{
-   $("#product_name").text("badmintion catogry"); 
+function yo (){
+  
+   fetch("/",{
+method : "POST",
+headers : {
+'Content-Type':'application/json'
+},
+body: JSON.stringify(checking)
+})
+
 }
+
+
+
+
+
+
+
+
 
