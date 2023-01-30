@@ -69,6 +69,10 @@ headers : {
 body: JSON.stringify(checking)
 })
 
+
+window.open("http://localhost:2000/products","_self");
+
+
 }
 
 

@@ -1,11 +1,13 @@
 //jshint esversion:6
-
+var product_name
+var firstProducts="SHoes for you guys"
 const express = require('express');
-
+var some="badmintion shoes"
 const https = require("https");
+
 let ejs = require('ejs');
 const app = express();
-app.use("view-engine","ejs");
+app.set("view engine","ejs");
 const mongoose = require ('mongoose');
 
 
@@ -20,41 +22,47 @@ app.use(express.static(__dirname));
 
 
 
+
 app.get("/",function(req,res){
     
-res.sendFile(__dirname+"/index.html");
 
 
+
+    res.sendfile(__dirname+"/index.html");
 
 
 });
 
 
+
+
+
 app.post("/",function(req,res){
      
-    const product_name=req.body.name;
+     product_name=req.body.name;
     console.log(product_name);
 
-if(product_name=="badmintion"){
-var some="badmintion shoes"
-res.render("products",{something:some})
-
-}
-else if(product_name=="cricket")
-{
+    res.send("thanks for the data ")
 
 
-}
-
-  
  
 
 });
 
 
 
-app.listen(3000,function(res){
 
-console.log("server is workig a t local host 3000");
+app.get("/products",(req,res)=>{
+
+    res.render("products",{something:product_name,firstProduct:firstProducts})
+})
+
+
+
+
+
+app.listen(2000,function(res){
+
+console.log("server is  not working workig a t local host 3000");
 
 });
