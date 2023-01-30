@@ -70,7 +70,7 @@ body: JSON.stringify(checking)
 })
 
 
-window.open("http://localhost:2000/products","_self");
+window.open("http://localhost:3000/products","_self");
 
 
 }
