@@ -45,13 +45,17 @@ app.get("/",function(req,res){
 
     // login page post funtion
     app.post("/",function(req,res){
-      console.log(req.body);  
+      var name=req.body.name;  
         var emailid=req.body.email;
         var emailpassword=req.body.password;
+        console.log(name,emailid,emailpassword);
+        
+
+       
         res.redirect("http://localhost:3000/home");
 
 
-        console.log(emailid,emailpassword);
+        
     });        
 
     
@@ -75,7 +79,7 @@ app.get("/",function(req,res){
 
 // home page get function 
 app.get("/home",function(req,res){
-    res.sendFile(__dirname+"/index.html");
+    res.sendFile(__dirname+"/home.html");
 });
 
 
@@ -133,7 +137,11 @@ app.get("/Products",(req,res)=>{
 
 
 // }
- 
+ if(product_name=="badmintion")
+ {
+
+    ProductsNames.name1="Rackets";
+ }
     res.render("products",{product1name : ProductsNames.name1,product2name:ProductsNames.name2,
         product3name : ProductsNames.name3,product4name : ProductsNames.name4,product5name : ProductsNames.name5,product6name : ProductsNames.name6,
         product7name : ProductsNames.name7,product8name : ProductsNames.name8,product9name : ProductsNames.name9
