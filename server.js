@@ -15,7 +15,7 @@ name9:"blank",
 const express = require('express');
 var some="badmintion shoes"
 const https = require("https");
-
+const bodyParser = require('body-parser')
 let ejs = require('ejs');
 const app = express();
 app.set("view engine","ejs");
@@ -25,7 +25,7 @@ app.set("view engine","ejs");
 
 
 app.use(express.static("public"));
-
+app.use(bodyParser.urlencoded({extented:true}));
 app.use(express.json()); 
 
 app.use(express.static(__dirname));
@@ -33,6 +33,47 @@ app.use(express.static(__dirname));
 
 
 
+
+
+// login page get funtion
+app.get("/",function(req,res){
+
+    res.sendFile(__dirname+"/login.html");
+    
+    
+    });
+
+    // login page post funtion
+    app.post("/",function(req,res){
+      console.log(req.body);  
+        var emailid=req.body.email;
+        var emailpassword=req.body.password;
+        res.redirect("http://localhost:3000/home");
+
+
+        console.log(emailid,emailpassword);
+    });        
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// home page get function 
 app.get("/home",function(req,res){
     res.sendFile(__dirname+"/index.html");
 });
@@ -40,8 +81,8 @@ app.get("/home",function(req,res){
 
 
 
-
-app.post("/",function(req,res){
+// home page post function.
+app.post("/home",function(req,res){
      
      product_name=req.body.name;
     console.log(product_name);
@@ -61,9 +102,9 @@ app.post("/",function(req,res){
 
 
 
+// product page get funtion.
 
-
-app.get("/products",(req,res)=>{
+app.get("/Products",(req,res)=>{
 
 //     const sport = mongoose.modelNames("sports")
 //     console.log(sport);
@@ -101,13 +142,6 @@ app.get("/products",(req,res)=>{
 
 
 
-
-
-app.get("/names",(req,res)=>{
-
-res.send("yo nice to mmet you brother ");
-
-});
 
 
 

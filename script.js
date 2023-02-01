@@ -61,7 +61,7 @@ $("#hockey").click(function (e) {
 
 function yo (){
   
-   fetch("/",{
+   fetch("/home",{
 method : "POST",
 headers : {
 'Content-Type':'application/json'
