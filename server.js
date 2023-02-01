@@ -20,8 +20,8 @@ let ejs = require('ejs');
 const app = express();
 app.set("view engine","ejs");
 
-const mongoose = require ('mongoose');
-mongoose.connect("mongodb://localhost:27017/sprotsbuzz", {useNewUrlParser: true});
+// const mongoose = require ('mongoose');
+// mongoose.connect("mongodb://localhost:27017/sprotsbuzz", {useNewUrlParser: true});
 
 
 app.use(express.static("public"));
@@ -33,9 +33,9 @@ app.use(express.static(__dirname));
 
 
 
-// app.get("/",function(req,res){
-//     res.sendfile(__dirname+"/index.html");
-// });
+app.get("/home",function(req,res){
+    res.sendFile(__dirname+"/index.html");
+});
 
 
 
@@ -65,33 +65,33 @@ app.post("/",function(req,res){
 
 app.get("/products",(req,res)=>{
 
-    const sport = mongoose.modelNames("sports")
-    console.log(sport);
+//     const sport = mongoose.modelNames("sports")
+//     console.log(sport);
 
-sport.find((err,fruits)=>
-{
+// sport.find((err,fruits)=>
+// {
 
-if(err){
+// if(err){
 
-    console.log(err);
-} else {
+//     console.log(err);
+// } else {
 
-console.log(fruits);
+// console.log(fruits);
 
-}
+// }
 
-})
+// })
 
 
-    if(product_name == "volleyball")
-{
+//     if(product_name == "volleyball")
+// {
 
     
 
-    console.log("is this thing even working right now i dont know ");
+//     console.log("is this thing even working right now i dont know ");
 
 
-}
+// }
  
     res.render("products",{product1name : ProductsNames.name1,product2name:ProductsNames.name2,
         product3name : ProductsNames.name3,product4name : ProductsNames.name4,product5name : ProductsNames.name5,product6name : ProductsNames.name6,
@@ -115,7 +115,7 @@ res.send("yo nice to mmet you brother ");
 
 
 
-app.listen(3000,function(res){
+app.listen(4000,function(res){
 
 console.log("Server is running at local host 300");
 

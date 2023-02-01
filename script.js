@@ -5,7 +5,7 @@ var checking = {  }
 
 $("#badmintion").click(function (e) { 
    e.preventDefault();
-
+console.log("yo dude this should work i huees ");
    checking={ }
    checking={
 
@@ -17,7 +17,7 @@ $("#badmintion").click(function (e) {
 
 $("#cricket").click(function (e) { 
    e.preventDefault();
-
+ console.log("is this working ?");
    checking={ }
    checking={
 
@@ -70,7 +70,7 @@ body: JSON.stringify(checking)
 })
 
 
-window.open("http://localhost:3000/products","_self");
+window.open("http://localhost:3000/products");
 
 
 }
