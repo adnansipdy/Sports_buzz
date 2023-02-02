@@ -21,7 +21,7 @@ $("#cricket").click(function (e) {
    checking={ }
    checking={
 
-      name:"Cricket"
+      name:"cricket"
    }
    yo();
 });

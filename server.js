@@ -229,6 +229,33 @@ ProductsNames.price4="₹ 10000";
 
  }
 
+ else if (product_name=="hockey")
+ 
+ {
+
+// images sort 
+ProductsNames.img1="Images\\hockey\\hoc1.jpg";
+ProductsNames.img2="Images\\hockey\\hockeyhel3.jpg";
+ProductsNames.img3="Images\\hockey\\hball3.jpg";
+ProductsNames.img4="Images\\hockey\\hockeysho4.jpg";
+// Name sort 
+ProductsNames.name1=" Bat  ";
+ProductsNames.name2=" Helemet ";
+ProductsNames.name3=" Balls ";
+ProductsNames.name4=" Shoes ";
+
+// Description 
+
+
+// price sort
+ProductsNames.price1="₹ 1500";
+ProductsNames.price2="₹ 5999";
+ProductsNames.price3="₹ 999";
+ProductsNames.price4="₹ 1333";
+
+
+ }
+
 
  
  else if(product_name=="cricket")
