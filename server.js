@@ -10,6 +10,14 @@ img1:"",
 img2:" ",
 img3:" ",
 img4:" ",
+des1:" ",
+des2:" ",
+des3:" ",
+des4:" ",
+price1:" ",
+price2:" ",
+price3:" ",
+price4:" "
 }
 const express = require('express');
 var some="badmintion shoes"
@@ -34,16 +42,9 @@ app.use(express.static(__dirname));
 
 
 
-var badimageSchema = new mongoose.Schema({
-    name: String,
-    source: String,
-    img:
-    {
-        data: Buffer,
-        contentType: String
-    }
-});
-const badimg = mongoose.model("badimg",badimageSchema);
+
+
+
 
 
 const userSchema = new mongoose.Schema({
@@ -62,7 +63,6 @@ const userSchema = new mongoose.Schema({
 
 
 
-var img11
 
 
 
@@ -73,18 +73,7 @@ var img11
 app.get("/",function(req,res){
 
     res.sendFile(__dirname+"/login.html");
-    badimg.find(function(err,imgs){
-
-        if(err){
-            console.log(err);
-        }
-        else{
-            img11= imgs[0].source; 
-         console.log(img11); 
-        }
-    })
     
-    console.log(img11);
     
     
     });
@@ -164,11 +153,155 @@ app.post("/home",function(req,res){
     
  if(product_name=="badmintion")
  {
+// images sort 
+     ProductsNames.img1="Images\\badmintion\\1.jpg";
+     ProductsNames.img2="Images\\badmintion\\bag1.jpg";
+     ProductsNames.img3="Images\\badmintion\\rack1.jpg";
+     ProductsNames.img4="Images\\badmintion\\shoes1.jpg";
+// Name sort 
+ProductsNames.name1=" Shuttles ";
+ProductsNames.name2=" Kits ";
+ProductsNames.name3=" Rackets ";
+ProductsNames.name4=" Shoes ";
 
-     
+// Description 
+
+
+// price sort
+ProductsNames.price1="₹ 150";
+ProductsNames.price2="₹ 700";
+ProductsNames.price3="₹ 2500";
+ProductsNames.price4="₹ 3000";
+
+ }
+ 
+ else if(product_name=="cricket")
+ 
+ {
+
+// images sort 
+ProductsNames.img1="Images\\cricket\\bat3.jpg";
+ProductsNames.img2="Images\\cricket\\ball2.jfif";
+ProductsNames.img3="Images\\cricket\\h1.jfif";
+ProductsNames.img4="Images\\cricket\\w2.jfif";
+// Name sort 
+ProductsNames.name1=" Bat ";
+ProductsNames.name2=" Ball ";
+ProductsNames.name3=" Helmet ";
+ProductsNames.name4=" Padds ";
+
+// Description 
+
+
+// price sort
+ProductsNames.price1="₹ 1500";
+ProductsNames.price2="₹ 350";
+ProductsNames.price3="₹ 700";
+ProductsNames.price4="₹ 1200";
 
 
  }
+
+ else if (product_name=="basketball")
+ 
+ {
+
+// images sort 
+ProductsNames.img1="Images\\basketball\\b3.jpg";
+ProductsNames.img2="Images\\basketball\\bas1.jpg";
+ProductsNames.img3="Images\\basketball\\net1.jpg";
+ProductsNames.img4="Images\\basketball\\j4.jfif";
+// Name sort 
+ProductsNames.name1=" Shoes  ";
+ProductsNames.name2=" Ball ";
+ProductsNames.name3=" Net ";
+ProductsNames.name4=" Kobe Bryant Limited edition Jersery ";
+
+// Description 
+
+
+// price sort
+ProductsNames.price1="₹ 7000";
+ProductsNames.price2="₹ 1350";
+ProductsNames.price3="₹ 2999";
+ProductsNames.price4="₹ 10000";
+
+
+ }
+
+
+ 
+ else if(product_name=="cricket")
+ 
+ {
+
+// images sort 
+ProductsNames.img1="Images\\cricket\\bat3.jpg";
+ProductsNames.img2="Images\\cricket\\ball2.jfif";
+ProductsNames.img3="Images\\cricket\\h1.jfif";
+ProductsNames.img4="Images\\cricket\\w2.jfif";
+// Name sort 
+ProductsNames.name1=" Bat ";
+ProductsNames.name2=" Ball ";
+ProductsNames.name3=" Helmet ";
+ProductsNames.name4=" Padds ";
+
+// Description 
+
+
+// price sort
+ProductsNames.price1="₹ 1500";
+ProductsNames.price2="₹ 350";
+ProductsNames.price3="₹ 700";
+ProductsNames.price4="₹ 1200";
+
+
+ }
+
+ else if (product_name=="Soccer")
+ 
+ {
+
+// images sort 
+ProductsNames.img1="Images\\scoccer\\football1.jpg";
+ProductsNames.img2="Images\\scoccer\\foot1.jpg";
+ProductsNames.img3="Images\\scoccer\\b3.jpg";
+ProductsNames.img4="Images\\scoccer\\j2.jpg";
+// Name sort 
+ProductsNames.name1=" Shoes  ";
+ProductsNames.name2=" Cosco Art  ";
+ProductsNames.name3=" Adidas Spark ";
+ProductsNames.name4=" Messi Jersery ";
+
+// Description 
+
+
+// price sort
+ProductsNames.price1="₹ 4999";
+ProductsNames.price2="₹ 1499";
+ProductsNames.price3="₹ 2999";
+ProductsNames.price4="₹ 999";
+
+
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
  
@@ -192,9 +325,23 @@ app.get("/Products",(req,res)=>{
     
 
 
-res.render("products",{product1name : ProductsNames.name1,product2name:ProductsNames.name2,
-        product3name : ProductsNames.name3,product4name : ProductsNames.name4,img1:img11})
-console.log(img11);
+res.render("products",{product1name : ProductsNames.name1,
+                       product2name : ProductsNames.name2,
+                       product3name : ProductsNames.name3,
+                       product4name : ProductsNames.name4,
+                       img1 : ProductsNames.img1,
+                       img2 : ProductsNames.img2,
+                       img3 : ProductsNames.img3,
+                       img4 : ProductsNames.img4,
+                       price1:ProductsNames.price1,
+                       price2:ProductsNames.price2,
+                       price3:ProductsNames.price3,
+                       price4:ProductsNames.price4
+                    
+                    
+                    
+                    })
+
 res.end();
    
 })

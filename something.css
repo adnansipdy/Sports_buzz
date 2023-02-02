@@ -122,3 +122,18 @@ float: left;
 
 
 
+
+.product_footer{
+
+ position: absolute;
+   padding-top: 75rem;
+    padding-left: 35rem;
+    }
+    
+
+
+.cardimg{
+
+    width: 21.9rem;
+    height: 21.9rem;
+}

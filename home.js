@@ -43,7 +43,7 @@ $("#volleyball").click(function (e) {
    checking={ }
    checking={
 
-      name:"volleyball"
+      name:"Soccer"
    }
    yo();
 });
@@ -101,7 +101,7 @@ body: JSON.stringify(checking)
 })
 
 
-window.open("http://localhost:3000/products");
+window.open("http://localhost:3000/products","_self");
 
 
 }
