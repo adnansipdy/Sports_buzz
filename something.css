@@ -126,9 +126,11 @@ float: left;
 .product_footer{
 
  position: absolute;
-   padding-top: 75rem;
-    padding-left: 35rem;
-    }
+ 
+ margin-top: 75rem;
+ padding-left: 32rem;
+padding-right: 40rem;
+}
     
 
 

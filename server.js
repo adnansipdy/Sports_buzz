@@ -1,7 +1,14 @@
 //jshint esversion:6
 var product_name
+var product_1={
+name:"Adnan",
+img1:"yo",
+img2:"yoo",
+img3:"yooo",
+buyPrice:" 135",
+delprice:" 150",
+}
 var ProductsNames={
-
 name1:"no ",
 name2:"rackets",
 name3:"blank",
@@ -19,6 +26,9 @@ price2:" ",
 price3:" ",
 price4:" "
 }
+
+
+
 const express = require('express');
 var some="badmintion shoes"
 const https = require("https");
@@ -311,26 +321,6 @@ ProductsNames.price4="₹ 999";
 
 
  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  
 
 });
@@ -376,7 +366,53 @@ res.end();
 
 
 
+app.post("/products",(req,res)=>{
 
+    product_1=req.body;
+    console.log(product_1);
+res.send("THank you for the Data");
+
+
+if(product_name=="badmintion")
+
+{
+
+if(product_1="1")
+{
+console.log("is this working ?");
+    product_1.name="yodude",
+    product_1.buyPrice="1500",
+    product_1.delprice="15975648",
+    product_1.img1="Images\\badmintion\\bag1.jpg",
+    product_1.img2="Images\\badmintion\\bag2.jpg",
+    product_1.img3="Images\\badmintion\\bag3.jpg"
+
+
+}
+
+}
+
+})
+
+
+
+
+app.get("/SportsBuzz/Buy",(req,res)=>{
+
+
+res.render("Buy",{ buyimg1:product_1.img1,
+                   buyimg2:product_1.img2,
+                   buyimg3:product_1.img3,
+                   buyitem:product_1.name,
+                   buyprice:product_1.buyPrice,
+                   buydelprice:product_1.delprice
+
+                   
+                
+                })
+
+})
+  
 
 
 
