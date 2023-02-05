@@ -43,7 +43,7 @@ $("#volleyball").click(function (e) {
    checking={ }
    checking={
 
-      name:"Soccer"
+      name:"soccer"
    }
    yo();
 });

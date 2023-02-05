@@ -1,7 +1,4 @@
-.product_name:hover{
 
-    color:black;
-}
 
 .products{
 float: left;
@@ -14,13 +11,13 @@ margin-top: 3rem;
 }
 
 .product_name{
-    color: #ef7ddc;
+  
 text-align: center;
 
 }
 .price{
 
-color: #ef7ddc;
+
 
 }
 

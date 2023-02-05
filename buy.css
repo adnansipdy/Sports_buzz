@@ -28,7 +28,7 @@ color: #ef7ddc;
 .footer{
 
 
-margin-top: 50rem;
+margin-top: 15rem;
 padding-bottom: 5rem;
 
 }
@@ -130,8 +130,7 @@ float: left;
 
 .cardimg{
 
-    width: 21.9rem;
-    height: 21.9rem;
+  
 }
 
 
@@ -144,30 +143,22 @@ float: left;
 
 .caraimg{
 
-width: 35rem;
 
-margin-left: 10rem;
+
 margin-top: 2rem;
+height: 30rem;
+width: 45rem;
+padding-right: 2rem;
+padding-left: 2rem;
+margin-left: 1rem;
 
 }
 
 
 
-.arrowcolor{
-    
-    
 
 
-}
 
-
-.left{
-    
-    padding-top: 4rem;
-    padding-left: 5rem;
-    color:#0b022d;
-
-}
 
 
 
@@ -177,9 +168,38 @@ margin-top: 2rem;
     
 }
 
-.specification{
 
-margin-top: 11rem;
+.Product_name1{
+
+    margin-top: 5rem;
+    margin-left: 50rem;
+
+}
 
 
+.mrp{
+
+margin-top: 1rem;
+margin-left: 50rem;
+margin-bottom: 0.2rem;
+}
+
+
+.deel{
+    margin-left: 4rem;
+   
+
+}
+.price_1{
+
+    margin-right: 23rem;
+    color:#0b022d;
+}
+
+
+.freeshipping{
+
+    margin-top: 3rem;
+    margin-left: 50rem;
+    margin-bottom: 2rem;
 }
