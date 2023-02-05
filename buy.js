@@ -6,6 +6,7 @@ console.log(a);
 if(a==true)
 {
    alert("🙂🙂 Thank you for Purchasing ");
+   window.open("http://localhost:3000/home","_self")
 }else{
     alert("Try Some other Items from the site");
 }
@@ -15,4 +16,5 @@ if(a==true)
 function hi()
 {
     alert("Product has been added to cart");
+    window.open("http://localhost:3000/home","_self")
 }
