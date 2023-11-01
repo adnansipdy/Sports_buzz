@@ -4,7 +4,7 @@ $('#Login').prop('disabled', true);
 // name verication
 $("#userName").keypress(function(){
    
-    if($("#userPass").val()!="" && $("#userName").val()!="" && $("#floatingInput").val() !="")
+    if($("#userPass").val()!="" &&  $("#floatingInput").val() !="")
 
     {
     

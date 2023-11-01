@@ -1,6 +1,9 @@
 //jshint esversion:6
 
-
+var username
+var emailid
+var emailpassword
+var orderdetails
 //  varable declations 
 var product_name
 var product_id
@@ -47,10 +50,10 @@ const app = express();
 app.set("view engine","ejs");
 
 
-//  mongodb connections 
-const mongoose = require ('mongoose');
-const { setMaxIdleHTTPParsers } = require('http');
-mongoose.connect("mongodb://localhost:27017/sprotsbuzz", {useNewUrlParser: true});
+// //  mongodb connections 
+// const mongoose = require ('mongoose');
+// const { setMaxIdleHTTPParsers } = require('http');
+// mongoose.connect("mongodb://localhost:27017/sprotsbuzz", {useNewUrlParser: true});
 
 
 app.use(express.static("public"));
@@ -68,14 +71,14 @@ app.use(express.static(__dirname));
 
 
 // mongo db new schema
-const userSchema = new mongoose.Schema({
-    name:String,
-    email:String,
-    password:String
-  });
+// const userSchema = new mongoose.Schema({
+//     name:String,
+//     email:String,
+//     password:String
+//   });
 
 
-  const User = mongoose.model("User",userSchema);
+//   const User = mongoose.model("User",userSchema);
 
 
 
@@ -103,30 +106,30 @@ app.get("/",function(req,res){
 
     // login page post funtion
     app.post("/",function(req,res){
-      var username=req.body.name;  
-        var emailid=req.body.email;
-        var emailpassword=req.body.password;
-        console.log(username,emailid,emailpassword);
+      username=req.body.name;  
+     emailid=req.body.email;
+      emailpassword=req.body.password;
+        
 
-        const user = new User({
+        // const user = new User({
 
-            name:username,
-            email:emailid,
-            password:emailpassword
-            })
+        //     name:username,
+        //     email:emailid,
+        //     password:emailpassword
+        //     })
         
 
 // mongo bd find funtion 
-User.find(function(err,persons){
+// User.find(function(err,persons){
 
-    if(err){
-        console.log(err);
-    }
-    else{
-        console.log(persons);
-    }
-})
-user.save();
+//     if(err){
+//         console.log(err);
+//     }
+//     else{
+//         console.log(persons);
+//     }
+// })
+// user.save();
        
         res.redirect("http://localhost:3000/home");
 
@@ -136,6 +139,8 @@ user.save();
 
 // home page get function 
 app.get("/home",function(req,res){
+    console.log(" \n \n");
+    console.log("User With UserName :  "+username+" Is Currently logined. ");
     res.sendFile(__dirname+"/home.html");
 });
 
@@ -146,7 +151,9 @@ app.get("/home",function(req,res){
 app.post("/home",function(req,res){
      
      product_name=req.body.name;
-    console.log(product_name);
+ 
+    console.log(" \n \n");
+    console.log("User With UserName :  "+username+" Is Currently logined. ");
 
     res.send("thanks for the data ");
 
@@ -303,6 +310,7 @@ ProductsNames.price4="999";
 // product page get funtion.
 
 app.get("/Products",(req,res)=>{
+    console.log(" Catagory "+product_name+" was selected by "+username);
 
 // rendering the products 
 res.render("products",{product1name : ProductsNames.name1,
@@ -330,10 +338,10 @@ res.render("products",{product1name : ProductsNames.name1,
 app.post("/products",(req,res)=>{
 
     product_id=req.body.name;
-    console.log(product_id);
+  
 res.send("THank you for the Data");
 
-console.log(product_name);
+
 // checking if badmintion is clicked 
 if(product_name=="badmintion")
 {
@@ -445,7 +453,7 @@ else if (product_name=="cricket")
     // if cricket 4th product
     else if( product_id=="4")
     {
-        console.log("yo its working ");
+      
         product_1.name=ProductsNames.name4,
         product_1.buyPrice=ProductsNames.price4,
         product_1.delprice=parseInt(ProductsNames.price4)+1635,
@@ -510,7 +518,7 @@ else if(product_name=="basketball")
     // if basketball 4th product
     else if( product_id=="4")
     {
-        console.log("yo its working ");
+        
         product_1.name=ProductsNames.name4,
         product_1.buyPrice=ProductsNames.price4,
         product_1.delprice=(ProductsNames.price4)+1987,
@@ -574,7 +582,7 @@ product_1.img3="\\"+images+"4.jpg"
 // if scoccer 4th product
 else if( product_id=="4")
 {
-    console.log("yo its working ");
+
     product_1.name=ProductsNames.name4,
     product_1.buyPrice=ProductsNames.price4,
     product_1.delprice=parseInt(ProductsNames.price4)+1987,
@@ -637,7 +645,7 @@ product_1.img3="\\"+images+"4.jpg"
 // if Hockey 4th product
 else if( product_id=="4")
 {
-    console.log("yo its working ");
+   
     product_1.name=ProductsNames.name4,
     product_1.buyPrice=ProductsNames.price4,
 
@@ -667,7 +675,7 @@ else if( product_id=="4")
 
 app.get("/SportsBuzz/Buy",(req,res)=>{
 
-
+    console.log("The product with the product id : "+product_name+"##"+product_id+" Was Clicked By "+username);
 res.render("Buy",{ buyimg1:product_1.img1,
                    buyimg2:product_1.img2,
                    buyimg3:product_1.img3,
@@ -683,11 +691,21 @@ res.render("Buy",{ buyimg1:product_1.img1,
   
 
 
+app.post("/SportsBuzz/Buy",function(req,res){
+
+orderdetails=req.body.name;
+console.log(req.body);
+console.log(orderdetails);
+
+res.send("yooooo bro nice to mmet you");
+
+
+});
 
 
 
 app.listen(3000,function(res){
 
-console.log("Server is running at local host 300");
+console.log("Server is running at local host 3000");
 
 });
